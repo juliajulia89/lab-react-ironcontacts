@@ -37,9 +37,11 @@ function App() {
     setAgenda(sortedContacts);
   };
 
-  const deleteContact = () =>{
-    
-  }
+  const deleteContact = (index) => {
+    const newList = agenda.slice();
+    newList.splice(index, 1);
+    setAgenda(newList);
+  };
   return (
     <>
       <h1>IRONCONTACTS</h1>
@@ -59,7 +61,7 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            {agenda.map((contact) => {
+            {agenda.map((contact, index) => {
               return (
                 <tr key={contact.id}>
                   <td>
@@ -74,7 +76,7 @@ function App() {
                   <td>{contact.wonOscar && "👹"}</td>
                   <td>{contact.wonEmmy && "👹"}</td>
                   <td>
-                    <button onClick={deleteContact}>delete</button>
+                    <button onClick={()=> deleteContact(index)}>delete</button>
                   </td>
                 </tr>
               );
