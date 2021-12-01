@@ -1,8 +1,12 @@
 import "./App.css";
 import contacts from "./contacts.json";
 import { useState } from "react";
+
+
 const remainingContacts = [...contacts];
+
 const initAgenda = remainingContacts.splice(0, 5);
+
 function App() {
   const [agenda, setAgenda] = useState(initAgenda);
   const addContact = () => {
@@ -11,6 +15,7 @@ function App() {
     // const randomContact = remainingContacts(randomIndex)
     setAgenda(agenda.concat(randomContact));
   };
+
   const sortByName = () => {
     const sortedContacts = remainingContacts.sort(function (a, b) {
       if (a.name < b.name) {
@@ -42,6 +47,7 @@ function App() {
     newList.splice(index, 1);
     setAgenda(newList);
   };
+  
   return (
     <>
       <h1>IRONCONTACTS</h1>
